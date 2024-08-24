@@ -20,4 +20,16 @@ export class AuthService {
       password,
     });
   }
+
+  register(
+    username: string | null | undefined,
+    email: string | null | undefined,
+    password: string | null | undefined): Observable<any>{
+      return this.http.post<any>(`${this.apiUrl}/auth/register`, {
+        username,
+        email,
+        password,
+      });
+
+    }
 }
