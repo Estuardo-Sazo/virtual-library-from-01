@@ -19,4 +19,14 @@ export const routes: Routes = [
       },
     ],
   },
+  {
+    path: 'book',
+    children: [
+      {
+        path: 'home',
+        loadComponent: () =>
+          import('./books/home/home.component').then((m) => m.HomeComponent),
+      },
+    ],
+  },
 ];
