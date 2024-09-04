@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+<section class="py-8 bg-white md:py-16 antialiased">
+  <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0">
+    <div class="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
+      <div class="shrink-0 max-w-md lg:max-w-lg mx-auto">
+        @if (book.images.length ==0) {
+
+        <img class="w-full dark:hidden" src="assets/img/no-imagen.jpg" alt="" />
+        <img
+          class="w-full hidden dark:block"
+          src="assets/img/no-imagen.jpg"
+          alt=""
+        />
+        } @else {
+        <img class="w-full dark:hidden" src="{{ book.images[0] }}" alt="" />
+        <img
+          class="w-full hidden dark:block"
+          src="{{ book.images[0] }}"
+          alt=""
+        />
+        }
+      </div>
+
+      <div class="mt-6 sm:mt-8 lg:mt-0">
+        <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl">
+          {{ book.title }}
+        </h1>
+
+        <hr class="my-6 md:my-8 border-gray-200" />
+
+        <p class="mb-6 text-gray-500">
+          {{ book.description }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

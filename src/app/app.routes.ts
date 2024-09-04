@@ -27,6 +27,11 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./books/home/home.component').then((m) => m.HomeComponent),
       },
+      {
+        path:':id',
+        loadComponent: () =>
+          import('./books/book/book.component').then((m) => m.BookComponent),
+      }
     ],
   },
 ];

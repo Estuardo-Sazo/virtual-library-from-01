@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavbarComponent } from '../../shared/navbar/navbar.component';
 import { BookService } from '../../core/services/book.service';
 import { HttpClientModule } from '@angular/common/http';
+import { Book } from '../../core/models/book';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,10 +13,10 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrl: './home.component.sass',
 })
 export class HomeComponent {
-  books: any = [];
-  constructor(private bookService: BookService) {
+  books: Book[] = [];
+  constructor(private bookService: BookService, private router: Router) {
     this.bookService.getBooks().subscribe((response) => {
-      console.log(response);
+      this.books = response;
     });
   }
 
@@ -22,5 +24,9 @@ export class HomeComponent {
     this.bookService.getBooks().subscribe((response) => {
       console.log(response);
     });
+  }
+
+  getViewBook(id: string) {
+    this.router.navigate(['book/' + id]);
   }
 }
