@@ -7,6 +7,13 @@ export interface Book {
     createdAt?: string;
 }
 
+export interface BookCreate {
+    title: string;
+    description: string;
+    images: string[];
+}
+
+
 export interface UserId {
     _id: string;
     username: string;

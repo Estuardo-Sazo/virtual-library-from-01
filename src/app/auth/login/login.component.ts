@@ -52,6 +52,7 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(emailFormControl, passwordFormControl).subscribe({
       next: (response) => {
+        localStorage.setItem('access_token', response.access_token);
         this.router.navigate(['book/home']);
       },
       error: (error) => {
